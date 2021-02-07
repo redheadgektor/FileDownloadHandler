@@ -34,7 +34,6 @@ IEnumerator DownloadOrUpdate(string filename)
 
             if (web.isDone)
             {
-                stream?.Close();
                 (web.downloadHandler as BundleDownloadHandler).ReplaceFile();
             }
         }
