@@ -1,4 +1,4 @@
-IEnumerator DownloadOrUpdateBundle(string filename)
+IEnumerator DownloadOrUpdate(string filename)
     {
         string filename = "file.bin";//file name
         using (UnityWebRequest web = UnityWebRequest.Get("http://localhost/"+filename))
