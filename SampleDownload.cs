@@ -10,15 +10,17 @@ IEnumerator DownloadOrUpdate(string filename)
 
             ulong download_size = 0;
             ulong downloaded_bytes = 0;
-
+            float progress = 0;
+            
             while (!web.isDone)
             {
                 if (web.downloadProgress > 0.01f && (int)(web.downloadProgress * 1000f) != oldProgress)
                 {
                     download_size = (web.downloadHandler as BundleDownloadHandler).contentSize;
                     downloaded_bytes = (ulong)((float)download_size * web.downloadProgress);
+                    progress = web.downloadProgress;
                     
-                    Debug.Log("Downloading bundle " + filename + " from remote storage " + (web.downloadProgress * 100f).ToString("f1") + "%");
+                    Debug.Log("Downloading bundle " + filename + " from remote storage " + (progress * 100f).ToString("f1") + "%");
 
                 }
 
